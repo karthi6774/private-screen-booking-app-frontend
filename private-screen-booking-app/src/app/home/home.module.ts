@@ -5,13 +5,15 @@ import { HomeRoutingModule } from './home-routing.module';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     ImageSliderComponent,
     ReviewsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
