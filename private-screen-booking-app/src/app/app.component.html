@@ -1,1 +1,57 @@
-<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+    <button mat-icon-button  (click)="drawer.toggle();"><mat-icon routerLinkActive="active-icon">menu</mat-icon></button>
+    <span>{{title}}</span>
+
+     <span class="toolbar-spacer"></span>
+
+    <nav [ngStyle]="{'display' : isHandset? 'None':'Block'}">
+      <a class="nav-bar-item" mat-button>Home</a>
+      <a class="nav-bar-item" mat-button>Reviews</a>
+      <a class="nav-bar-item" mat-button>Contact</a>
+    </nav>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+
+<mat-sidenav-container class="sidenav-container" hasBackdrop="true" >
+  <mat-sidenav
+  #drawer
+  class="sidenav"
+
+  [attr.role]="(isHandset ) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset) ? 'over' : 'side'"
+  [opened]="isMenuOpen">
+
+    <mat-nav-list >
+      <a [routerLink]="['/home']" mat-list-item  routerLinkActive="active">
+        <mat-icon routerLinkActive="active-icon">home</mat-icon>
+        <span class="ml-2" > Home </span>
+      </a>
+      <a [routerLink]="['/home']" mat-list-item  routerLinkActive="active">
+       <!--  <mat-icon routerLinkActive="active-icon">home</mat-icon> -->
+        <span class="ml-2" > Reviews </span>
+      </a>
+      <a [routerLink]="['/home']" mat-list-item  routerLinkActive="active">
+       <!--  <mat-icon routerLinkActive="active-icon">home</mat-icon> -->
+        <span class="ml-2" > Contact  </span>
+      </a>
+      <a [routerLink]="['/faqs']" mat-list-item  routerLinkActive="active">
+       <!--  <mat-icon routerLinkActive="active-icon">home</mat-icon> -->
+        <span class="ml-2" > FAQ`s </span>
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content  [ngStyle]="{ 'margin-left.px': contentMargin }" >
+    <div class="main">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

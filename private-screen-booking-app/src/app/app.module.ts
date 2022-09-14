@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { HomeModule } from './home/home.module';
 
 
 
@@ -21,6 +22,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    HomeModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

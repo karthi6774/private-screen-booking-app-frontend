@@ -49,7 +49,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatTableDataSource } from '@angular/material/table/table-data-source';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 /* import {
   NgxMatDatetimePickerModule,
   NgxMatNativeDateModule,
@@ -105,7 +105,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
       MatTreeModule,
       PortalModule,
       ScrollingModule,
-      MatFormFieldModule
+      MatFormFieldModule,
   ],
   exports :[
     A11yModule,
@@ -155,7 +155,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 /*         NgxMatDatetimePickerModule,
         NgxMatNativeDateModule,
         NgxMatTimepickerModule, */
-        MatPaginator
+        MatPaginator,
   ]
 
 })
