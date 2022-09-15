@@ -6,6 +6,9 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 @NgModule({
@@ -17,12 +20,15 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    NgbModule,
+
   ],
   exports : [
     ImageSliderComponent,
     ReviewsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    HomeComponent
   ]
 })
 export class HomeModule { }

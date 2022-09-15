@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -43,6 +44,14 @@ export class AppComponent {
           this.isMenuOpen = true;
         }
     }
+
+    slides = [
+      {'image': 'https://picsum.photos/seed/picsum/1200/300'},
+      {'image': 'https://picsum.photos/seed/picsum/1200/300'},
+      {'image': 'https://picsum.photos/seed/picsum/1200/300'},
+      {'image': 'https://picsum.photos/seed/picsum/1200/300'},
+      {'image': 'https://picsum.photos/seed/picsum/1200/300'}
+    ];
 
 
 }
