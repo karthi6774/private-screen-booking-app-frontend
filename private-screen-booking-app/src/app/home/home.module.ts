@@ -7,6 +7,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 
 
@@ -22,7 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     HomeRoutingModule,
     NgbModule,
-
+    AngularMaterialModule
   ],
   exports : [
     ImageSliderComponent,

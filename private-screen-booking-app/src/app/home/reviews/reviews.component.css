@@ -1,0 +1,34 @@
+
+mat-card{
+  width: 300px;
+  height: 200px;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.review-section{
+  margin-top: 60px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 60px;
+}
+
+.review-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.review-content{
+  margin-top: 10px;
+  color: black;
+  text-align: justify;
+  padding: 2px;
+}
+
+.review-star-rating{
+  color: #FFC107;
+  font-size: 30px;
+}
+
+
