@@ -14,6 +14,7 @@ export class ReviewsComponent implements OnInit {
     config.interval = 10000;
     config.keyboard = true;
     config.pauseOnHover = true;
+    config.showNavigationIndicators = false;
   }
 
   ngOnInit(): void {

@@ -1,9 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { delay } from 'rxjs';
+import { Component} from '@angular/core';
 
 
 @Component({
@@ -16,10 +12,9 @@ export class AppComponent {
 
 
 
-  constructor(private breakpointObserver: BreakpointObserver,
-              private router: Router) { }
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
-    private sidenav!: MatSidenav;
+   // private sidenav!: MatSidenav;
 
     public isMenuOpen = false;
     public contentMargin = 240;
@@ -34,9 +29,10 @@ export class AppComponent {
 
     ngOnInit() {
       this.isMenuOpen = false;  // Open side menu by default
-      this.title = 'Brand Name';
+      this.title = 'Brand Name'; // add the brand name here
     }
 
+    // toggles menu icons
     ngDoCheck() {
         if (this.isHandset) {
           this.isMenuOpen = false;
@@ -44,14 +40,5 @@ export class AppComponent {
           this.isMenuOpen = true;
         }
     }
-
-    slides = [
-      {'image': 'https://picsum.photos/seed/picsum/1200/300'},
-      {'image': 'https://picsum.photos/seed/picsum/1200/300'},
-      {'image': 'https://picsum.photos/seed/picsum/1200/300'},
-      {'image': 'https://picsum.photos/seed/picsum/1200/300'},
-      {'image': 'https://picsum.photos/seed/picsum/1200/300'}
-    ];
-
 
 }
