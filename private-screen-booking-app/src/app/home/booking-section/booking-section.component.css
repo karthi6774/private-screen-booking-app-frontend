@@ -1,0 +1,10 @@
+.book-now-button{
+
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: black;
+  color: white;
+  font-size: medium;
+}

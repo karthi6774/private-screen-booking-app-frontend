@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { HomeModule } from './home/home.module';
+import { AdminModule } from './admin/admin.module';
+import { ContactHelpModule } from './contact-help/contact-help.module';
 
 
 
@@ -26,9 +28,6 @@ import { HomeModule } from './home/home.module';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HomeModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
