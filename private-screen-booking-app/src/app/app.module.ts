@@ -10,11 +10,15 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { HomeModule } from './home/home.module';
 import { AdminModule } from './admin/admin.module';
 import { ContactHelpModule } from './contact-help/contact-help.module';
+import { JwtModule } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 
 
 
 
-
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 
 
@@ -28,7 +32,15 @@ import { ContactHelpModule } from './contact-help/contact-help.module';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HomeModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains:[environment.apiURL]
+       // whitelistedDomains: ["localhost:5000"],
+      //  blacklistedRoutes: []
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
