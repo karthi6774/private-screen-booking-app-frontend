@@ -1,0 +1,81 @@
+
+
+<div class="contanier" style="margin: auto;">
+
+  <mat-card>
+      <div class="row">
+        <div class="col-6 col-sm-3">
+          <div class="h4">TheatreName</div>
+          <div class="h4">Date</div>
+          <div class="h4">SlotName</div>
+          <div class="h4">Price</div>
+          <div class="h4">Number of seats</div>
+        </div>
+        <div class="col-6 col-sm-3">
+          <div class="h4">{{this.order.theatreName}}</div>
+          <div class="h4">{{this.order.screenDate | date}}</div>
+          <div class="h4">{{this.order.slotName}}</div>
+          <div class="h4">{{this.order.price}}</div>
+          <div class="h4">{{this.order.numberOfSeats}}</div>
+        </div>
+      </div>
+      <mat-card-header>
+<!--       <div mat-card-avatar class="header-image"></div>
+   <div class="row justify-content-center">
+      <div class="col-sm-4">
+        <div>{{this.order.theatreName}}</div>
+        <div>{{this.order.screenDate | date}} ,{{this.order.slotName}}</div>
+      </div>
+      <div class="col-sm-4">
+        <div>{{this.order.price}}</div>
+        <div>{{this.order.numberOfSeats}}</div>
+      </div>
+
+   </div> -->
+
+    </mat-card-header>
+    <mat-card-content>
+      <form class="checkout-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm)">
+        <mat-form-field appearance="fill">
+          <div>
+            <mat-label>
+              Full Name:
+              </mat-label>
+              <input matInput formControlName="fullName" placeholder="Your Full Name">
+            <div *ngIf="checkoutForm.get('fullName')?.invalid &&
+             (checkoutForm.get('fullNamename')?.dirty || checkoutForm.get('fullName')?.touched)">
+              Please provide a name.
+            </div>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <div>
+            <mat-label>
+              Email:
+            </mat-label>
+              <input matInput formControlName="email" placeholder="Your email">
+            <div *ngIf="checkoutForm.get('email')?.invalid &&
+            (checkoutForm.get('email')?.dirty || checkoutForm.get('email')?.touched)">
+              Please provide a valid email address.
+            </div>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <div>
+            <mat-label>Contact Number</mat-label>
+              <input matInput formControlName="phoneNumber" placeholder="Your contact number">
+            <div *ngIf="checkoutForm.get('phoneNumber')?.invalid &&
+            (checkoutForm.get('checkoutForm')?.dirty || checkoutForm.get('phoneNumber')?.touched)">
+             contact number must be at least 10 characters long.
+            </div>
+          </div>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" [disabled]="checkoutForm.invalid">Confirm Booking</button>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>

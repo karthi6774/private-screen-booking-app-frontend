@@ -28,6 +28,7 @@ import { ContactHelpModule } from './contact-help/contact-help.module';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
