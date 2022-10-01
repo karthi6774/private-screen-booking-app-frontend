@@ -1,0 +1,23 @@
+<div *ngIf="!isUserAuthenticated()">
+  <app-login></app-login>
+</div>
+<div *ngIf="isUserAuthenticated()">
+
+
+  <h2>
+    Welcome to the Private-Screen-Booking Application
+  </h2>
+  <button mat-button (click)="logout()">Logout</button>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <app-get-pending-payment></app-get-pending-payment>
+      </div>
+      <div class="col-sm-12">
+        <app-update-pending-payment></app-update-pending-payment>
+      </div>
+    </div>
+
+  </div>
+</div>

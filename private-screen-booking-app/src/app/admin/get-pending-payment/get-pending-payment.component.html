@@ -1,0 +1,39 @@
+
+<div class="h4">All Pending Payment Orders </div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Order Id</th>
+      <th>email</th>
+      <th>fullName
+      </th>
+      <th>numberOfSeats
+      </th>
+      <th>paymentStatus</th>
+      <th>phoneNumber
+      </th>
+      <th>price</th>
+      <th>screenDate
+      </th>
+      <th>theatreName
+      </th>
+      <th>screenFromTime</th>
+      <th>screenTOTIme</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let order of pendingPaymentOrders">
+    <tr>
+      <td>{{order._id}}</td>
+      <td>{{order.email}}</td>
+      <td>{{order.fullName}}</td>
+      <td>{{order.numberOfSeats}}</td>
+      <td>{{order.paymentStatus}}</td>
+      <td>{{order.phoneNumber}}</td>
+      <td>{{order.price}}</td>
+      <td>{{order.screenDate}}</td>
+      <td>{{order.theatreName}}</td>
+      <td>{{order.screenFromTime}}</td>
+      <td>{{order.screenToTime}}</td>
+    </tr>
+  </tbody>
+</table>

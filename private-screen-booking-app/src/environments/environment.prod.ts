@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiURL: 'https://cryptic-harbor-13946.herokuapp.com',
+  domain:'cryptic-harbor-13946.herokuapp.com'
 };

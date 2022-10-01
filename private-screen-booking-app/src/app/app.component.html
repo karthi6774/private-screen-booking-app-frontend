@@ -16,8 +16,9 @@
 
     <nav [ngStyle]="{'display' : isHandset? 'None':'Block'}">
       <a [routerLink]="['/home']" routerLinkActive="active" class="nav-bar-item" mat-button>Home</a>
-      <a [routerLink]="['/reviews']" routerLinkActive="active" class="nav-bar-item" mat-button>Reviews</a>
-      <a [routerLink]="['/contact']" routerLinkActive="active" class="nav-bar-item" mat-button>Contact</a>
+      <a [routerLink]="['/book-now']" routerLinkActive="active" class="nav-bar-item" mat-button>Book Now</a>
+      <a href="#reviews" routerLinkActive="active" class="nav-bar-item" mat-button>Reviews</a>
+      <a href="#contact" routerLinkActive="active" class="nav-bar-item" mat-button>Contact</a>
     </nav>
 
   </mat-toolbar-row>
@@ -38,10 +39,13 @@
         <mat-icon routerLinkActive="active-icon">home</mat-icon>
         <span class="ml-2" > Home </span>
       </a>
-      <a [routerLink]="['/reviews']" mat-list-item  routerLinkActive="active">
+      <a [routerLink]="['/book-now']" mat-list-item  routerLinkActive="active">
+        <span class="ml-2" > Book Now </span>
+      </a>
+      <a  href="#reviews" mat-list-item  routerLinkActive="active">
         <span class="ml-2" > Reviews </span>
       </a>
-      <a [routerLink]="['/contact']" mat-list-item  routerLinkActive="active">
+      <a href="#contact" mat-list-item  routerLinkActive="active">
         <span class="ml-2" > Contact  </span>
       </a>
       <a [routerLink]="['/faqs']" mat-list-item  routerLinkActive="active">

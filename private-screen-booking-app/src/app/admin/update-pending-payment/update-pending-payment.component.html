@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="h4">Update the Pending payment</div>
+  <div>
+    <mat-card  class="login-card">
+      <mat-card-content>
+                  <mat-card >
+                      <mat-card-title>Payment update form</mat-card-title>
+                      <mat-card-content>
+                        <div>
+                          <mat-label>Payment Status</mat-label>
+                          <mat-radio-group name="payStatus" [(ngModel)]="payStatus">
+                              <mat-radio-button [value]=true> True </mat-radio-button>
+                              <mat-radio-button [value]=false checked=""> False </mat-radio-button>
+                          </mat-radio-group>
+
+                        <br>
+                        <br>
+                    </div>
+
+                          <form [formGroup]="payupdateForm" (ngSubmit)="update(payupdateForm)" autocomplete="off">
+                              <div>
+                                  <mat-form-field appearance="standard">
+                                      <mat-label>Order ID </mat-label>
+                                      <input matInput formControlName="orderId" placeholder="Order Id">
+                                      <mat-hint>Enter Order Id </mat-hint>
+                                      <mat-error *ngIf="(payupdateForm.get('orderId'))?.errors?.['required']">OrderID is required</mat-error>
+                                  </mat-form-field>
+                              </div>
+
+
+
+                              <div>
+                                  <button mat-raised-button color="primary" type="submit" [disabled]="!payupdateForm.valid">Submit</button>
+                              </div>
+
+                          </form>
+
+                      </mat-card-content>
+                  </mat-card>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -8,11 +8,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { HomeModule } from './home/home.module';
+import { AdminModule } from './admin/admin.module';
+import { ContactHelpModule } from './contact-help/contact-help.module';
+import { JwtModule } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 
 
 
 
-
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 
 
@@ -26,9 +32,16 @@ import { HomeModule } from './home/home.module';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HomeModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains:[environment.apiURL,environment.domain],
+
+     // whitelistedDomains: ["localhost:5000"],
+     // blacklistedRoutes: []
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { BookingSectionComponent } from './booking-section/booking-section.component';
 
 
 
@@ -17,7 +18,8 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
     ImageSliderComponent,
     ReviewsComponent,
     ContactUsComponent,
-    HomeComponent
+    HomeComponent,
+    BookingSectionComponent
   ],
   imports: [
     CommonModule,
