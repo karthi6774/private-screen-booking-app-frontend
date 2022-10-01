@@ -1,14 +1,26 @@
 
 
 <div class="container mt-3 mb-2">
-  <mat-form-field appearance="fill">
+  <div>
+    <div class="h5">How To</div>
+    <mat-list>
+      <mat-list-item>1.Pick a date</mat-list-item>
+      <mat-list-item>2.Then select the theatre according number of seats and price</mat-list-item>
+      <mat-list-item>3.Then select Slot (Morning,Afternoon,Evening,Night)</mat-list-item>
+      <mat-list-item>4.Press Book-now button ,it will take you to checkout page</mat-list-item>
+    </mat-list>
+  </div>
+  <mat-card class="inline-calendar-card">
+    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+  </mat-card>
+<!--   <mat-form-field appearance="fill">
     <mat-label>Choose a date</mat-label>
     <input required matInput [min]="today" [matDatepicker]="picker"
      (dateChange)="selectedDateEvent($event)">
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle   matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+  </mat-form-field> -->
 </div>
 
 <!--
@@ -21,35 +33,35 @@
     <div class="col-sm-4 mb-3">
      <!-- [formControl]="dateSelector"
        [ngStyle]="{'display' : removedTheatre !== 'TH0'?'None':'block'}" -->
-      <mat-card  >
-        <img  mat-card-xl-image src="https://picsum.photos/seed/picsum/1200/300" alt="Random second slide">
+      <mat-card>
+        <img height="200px" mat-card-image src="https://picsum.photos/seed/picsum/1200/300" alt="Random second slide">
         <mat-card-content class="mt-3">
           <p> Insert description of the theatre 2 like features provided and number of seats </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button  (click)="selectedTheatreEvent('TH0')" >Select Theatre 0</button>
+          <button mat-stroked-button  (click)="selectedTheatreEvent('TH0')" >Select Theatre 0</button>
         </mat-card-actions>
       </mat-card>
     </div>
     <div class="col-sm-4 mb-3">
       <mat-card >
-        <img  mat-card-xl-image src="https://picsum.photos/seed/picsum/1200/300" alt="Random second slide">
+        <img height="200px" mat-card-image src="https://picsum.photos/seed/picsum/1200/300" alt="Random second slide">
         <mat-card-content class="mt-3">
           <p> Insert description of the theatre 2 like features provided and number of seats </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button (click)="selectedTheatreEvent('TH1')" >Select Theatre 1</button>
+          <button mat-stroked-button (click)="selectedTheatreEvent('TH1')" >Select Theatre 1</button>
         </mat-card-actions>
       </mat-card>
     </div>
     <div class="col-sm-4 mb-3">
       <mat-card >
-        <img  mat-card-xl-image src="https://picsum.photos/seed/picsum/1200/300" alt="Random second slide">
+        <img height="200px"  mat-card-image src="https://picsum.photos/seed/picsum/1200/300" alt="Random second slide">
         <mat-card-content class="mt-3">
           <p> Insert description of the theatre 2 like features provided and number of seats </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button (click)="selectedTheatreEvent('TH2')" >Select Theatre 2</button>
+          <button mat-stroked-button (click)="selectedTheatreEvent('TH2')" >Select Theatre 2</button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -57,17 +69,37 @@
 </div>
 
 <div class="container" [ngStyle]="{ 'display' : selectedTheatre?'block':'None'}">
-  <div class="h3">Select the Slot</div>
-  <mat-list>
-    <mat-list-item (click)="slotSelectedEvent('MORNING')" *ngIf="availableSlots.morning"> Morning  </mat-list-item>
+  <div class="h3">Select the Slot for {{selectedTheatre}}</div>
+<div class="flex-container">
+  <div class="button-container">
+    <button mat-raised-button (click)="slotSelectedEvent('MORNING')" *ngIf="availableSlots.morning" >Morning</button>
+  </div>
+  <div class="button-container">
+    <button mat-raised-button (click)="slotSelectedEvent('AFTERNOON')" *ngIf="availableSlots.afternoon" >Afternoon</button>
+  </div>
+  <div class="button-container">
+    <button mat-raised-button (click)="slotSelectedEvent('EVENING')" *ngIf="availableSlots.evening" >Evening</button>
+  </div>
+  <div class="button-container">
+    <button mat-raised-button (click)="slotSelectedEvent('NIGHT')" *ngIf="availableSlots.night" >Night</button>
+  </div>
+
+
+
+
+</div>
+
+
+<!--   <mat-list>
+    <mat-list-item (click)="slotSelectedEvent('MORNING')" *ngIf="availableSlots.morning"> <a >Morning</a>  </mat-list-item>
     <mat-list-item (click)="slotSelectedEvent('AFTERNOON')" *ngIf="availableSlots.afternoon"> Afternoon </mat-list-item>
     <mat-list-item (click)="slotSelectedEvent('EVENING')" *ngIf="availableSlots.evening"> Evening  </mat-list-item>
     <mat-list-item (click)="slotSelectedEvent('NIGHT')" *ngIf="availableSlots.night">  Night </mat-list-item>
-   </mat-list>
+   </mat-list> -->
 </div>
 
-<div [ngStyle]="{ 'display' : selectedSlot !== ''?'block':'None'}" style="text-align: center;">
-  <button mat-button (click)="checkoutPage()"  > BOOK  </button>
+<div class="book-now-btn">
+  <button color="primary" mat-button [disabled]="selectedSlot===''" (click)="checkoutPage()"  > BOOK-NOW  </button>
 </div>
 
 

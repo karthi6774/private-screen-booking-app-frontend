@@ -28,6 +28,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  height: fit-content;
 }
 
 .is-active {
@@ -99,8 +100,7 @@
 
 .active {
   font-weight: bold;
-  background-color: #CFCFCF;
-  color: darkred;
+
 }
 
 .active:active {
@@ -109,5 +109,5 @@
 }
 
 .active-icon {
-  color: red;
+  color: black;
 }

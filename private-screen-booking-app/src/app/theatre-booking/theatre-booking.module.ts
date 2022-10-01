@@ -19,7 +19,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
     TheatreBookingRoutingModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    HttpClientModule,
     FormsModule
   ]
 })

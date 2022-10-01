@@ -1,7 +1,15 @@
 
 
-<div class="contanier" style="margin: auto;">
-
+<div class="container" style="margin: auto;">
+<button mat-button routerLink="/book-now">GO BACK</button>
+<div>
+  <div class="h5">How To</div>
+  <mat-list>
+    <mat-list-item>1.Check details mentioned below are correct</mat-list-item>
+    <mat-list-item>2.Enter valid Name, email id ,contact number </mat-list-item>
+    <mat-list-item>3.Up on confirming ,you will receive a mail ,containing payment procedure</mat-list-item>
+  </mat-list>
+</div>
   <mat-card>
       <div class="row">
         <div class="col-6 col-sm-3">
@@ -36,7 +44,7 @@
     </mat-card-header>
     <mat-card-content>
       <form class="checkout-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm)">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="standard">
           <div>
             <mat-label>
               Full Name:
@@ -49,7 +57,7 @@
           </div>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="standard">
           <div>
             <mat-label>
               Email:
@@ -62,7 +70,7 @@
           </div>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="standard">
           <div>
             <mat-label>Contact Number</mat-label>
               <input matInput formControlName="phoneNumber" placeholder="Your contact number">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TheatreBookingService } from '../theatre-booking.service';
 import { Order } from '../_interface/order';
 
@@ -17,7 +18,10 @@ export class CheckoutComponent implements OnInit {
       Validators.pattern("^[0-9]+$")]],
   });
 
-  constructor(private fb: FormBuilder,private theatreService: TheatreBookingService) {}
+  constructor(private fb: FormBuilder,
+    private theatreService: TheatreBookingService,
+    private router:Router
+    ) {}
 
 
 
@@ -65,7 +69,15 @@ export class CheckoutComponent implements OnInit {
     console.log("confirmed order " + this.order.screenDate);
 
     this.theatreService.confirmedOrder(this.order)
-    .subscribe( res => console.log(res));
+    .subscribe( res => {
+      console.log(res);
+      alert(`A Email has been sent to the provided mail Id,
+      Check the mail for payment procedure or ping us on whatsapp
+      `);
+      this.router.navigate(['home']);
+
+
+    });
   }
 
 

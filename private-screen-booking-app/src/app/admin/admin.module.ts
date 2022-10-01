@@ -6,7 +6,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetPendingPaymentComponent } from './get-pending-payment/get-pending-payment.component';
 import { UpdatePendingPaymentComponent } from './update-pending-payment/update-pending-payment.component';
 
@@ -21,9 +21,9 @@ import { UpdatePendingPaymentComponent } from './update-pending-payment/update-p
   imports: [
     CommonModule,
     AdminRoutingModule,
-    HttpClientModule,
     AngularMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

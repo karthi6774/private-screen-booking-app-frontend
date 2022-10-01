@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/theatre-booking/_interface/order';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-get-pending-payment',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetPendingPaymentComponent implements OnInit {
 
-  constructor() { }
+  pendingPaymentOrders : any[]=[];
+
+  constructor(private adminService:AdminService) { }
 
   ngOnInit(): void {
+      this.adminService.pendingPayments().subscribe(res => {
+        this.pendingPaymentOrders = res.pendingPaymentsOrder;
+        console.log(this.pendingPaymentOrders);
+      })
   }
 
 }

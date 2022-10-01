@@ -86,6 +86,7 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
   }
 
   selectedTheatreEvent(theatreName : string){
+    this.selectedDate = this.formatDate(this.selectedDate);
     console.log(theatreName);
     this.selectedTheatre =  theatreName;
 
