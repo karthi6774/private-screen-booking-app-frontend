@@ -11,7 +11,7 @@
     </mat-list>
   </div>
   <mat-card class="inline-calendar-card">
-    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+    <mat-calendar (selectedChange)="selectedDateEvent($event)"></mat-calendar>
   </mat-card>
 <!--   <mat-form-field appearance="fill">
     <mat-label>Choose a date</mat-label>
@@ -58,7 +58,7 @@
       <mat-card >
         <img height="200px"  mat-card-image src="https://picsum.photos/seed/picsum/1200/300" alt="Random second slide">
         <mat-card-content class="mt-3">
-          <p> Insert description of the theatre 2 like features provided and number of seats </p>
+          <p>Insert description of the theatre 2 like features provided and number of seats </p>
         </mat-card-content>
         <mat-card-actions>
           <button mat-stroked-button (click)="selectedTheatreEvent('TH2')" >Select Theatre 2</button>

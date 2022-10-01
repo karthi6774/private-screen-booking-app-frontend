@@ -60,13 +60,14 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
 
   ]); */
 
-  selectedDateEvent(event:MatDatepickerInputEvent<Date> ){
-    console.log(event.value);
-    this.selectedDate = event.value;
+  selectedDateEvent(event:any ){
+    console.log(event);
+    this.selectedDate = event;
     //this.selectedDate = new Date(2022,09,27);
    // this.selectedDate = this.selectedDate.toLocaleDateString().replaceAll('/','-');
    this.selectedDate = this.formatDate(this.selectedDate);
     console.log(this.selectedDate);
+    this.selectedTheatre='';
   }
 
   ngAfterViewInit(){
@@ -86,7 +87,7 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
   }
 
   selectedTheatreEvent(theatreName : string){
-    this.selectedDate = this.formatDate(this.selectedDate);
+   // this.selectedDate = this.formatDate(this.selectedDate);
     console.log(theatreName);
     this.selectedTheatre =  theatreName;
 
