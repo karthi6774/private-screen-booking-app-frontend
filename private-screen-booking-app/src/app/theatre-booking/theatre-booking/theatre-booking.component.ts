@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatCard, MatCardModule } from '@angular/material/card';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatCalendarCellCssClasses, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TheatreBookingService } from '../theatre-booking.service';
 import { Theatre } from '../_interface/theatre';
@@ -19,13 +19,22 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
     private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe( res => {
+      if(res['theatre'] !== undefined){
+        this.highlatedTheatre = res['theatre'];
+      }
+      else{
+        this.highlatedTheatre = '';
+      }
+      console.log(this.highlatedTheatre);
+    })
   }
 
   today : Date =  new Date();
   selectedDate: any;
   selectedTheatre : string='';
   selectedSlot:string='';
-  removedTheatre : string='';
+  highlatedTheatre : string='';
 
   price: number=0;
   seats: number= 0;
@@ -44,6 +53,8 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
     hours: 0
   };
 
+  isloading:boolean = false;
+
   availableSlots :{
     morning:boolean,
     afternoon:boolean,
@@ -60,6 +71,8 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
 
   ]); */
 
+
+
   selectedDateEvent(event:any ){
     console.log(event);
     this.selectedDate = event;
@@ -68,6 +81,12 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
    this.selectedDate = this.formatDate(this.selectedDate);
     console.log(this.selectedDate);
     this.selectedTheatre='';
+    this.selectedTheatreEvent('');
+    this.availableSlots.afternoon = false;
+    this.availableSlots.morning = false;
+    this.availableSlots.evening = false;
+    this.availableSlots.night = false;
+    console.log(this.highlatedTheatre)
   }
 
   ngAfterViewInit(){
@@ -91,20 +110,37 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
     console.log(theatreName);
     this.selectedTheatre =  theatreName;
 
-    this.theatreService.availableSlots(this.selectedDate,this.selectedTheatre)
-    .subscribe( res  => {
-      console.log(res);
-      this.availableTheatre =  res.theatre;
-      console.log(this.availableTheatre);
-      this.price = this.availableTheatre.price;
-      this.hours = this.availableTheatre.hours;
-      this.seats = this.availableTheatre.seats;
-      this.availableSlots.morning = this.availableTheatre.isMorning;
-      this.availableSlots.afternoon = this.availableTheatre.isAfternoon;
-      this.availableSlots.evening = this.availableTheatre.isEvening;
-      this.availableSlots.night = this.availableTheatre.isNight;
-      console.log(this.availableSlots);
-    });
+    if( this.selectedTheatre !== ''){
+      this.router.navigate(['/book-now'],{
+        queryParams : { "theatre" : theatreName },
+        skipLocationChange : false,
+        queryParamsHandling : 'merge'
+      })
+
+      this.isloading = true;
+      this.theatreService.availableSlots(this.selectedDate,this.selectedTheatre)
+      .subscribe( res  => {
+        console.log(res);
+        this.isloading = false;
+        this.availableTheatre =  res.theatre;
+        console.log(this.availableTheatre);
+        this.price = this.availableTheatre.price;
+        this.hours = this.availableTheatre.hours;
+        this.seats = this.availableTheatre.seats;
+        this.availableSlots.morning = this.availableTheatre.isMorning;
+        this.availableSlots.afternoon = this.availableTheatre.isAfternoon;
+        this.availableSlots.evening = this.availableTheatre.isEvening;
+        this.availableSlots.night = this.availableTheatre.isNight;
+        console.log(this.availableSlots);
+      });
+    }
+    else{
+      this.router.navigate(['/book-now']);
+    }
+
+
+
+
 
 
   }

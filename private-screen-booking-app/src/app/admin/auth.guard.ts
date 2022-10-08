@@ -15,6 +15,18 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const token = localStorage.getItem("access_token");
 
+      if(token){
+        let detoken = this.jwtHelper.decodeToken(token);
+        if(detoken.role === 'ADMIN'){
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+
+
+
 
       if (token && !this.jwtHelper.isTokenExpired(token)){
         return true;

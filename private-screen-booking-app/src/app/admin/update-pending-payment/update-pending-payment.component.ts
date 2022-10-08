@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class UpdatePendingPaymentComponent implements OnInit {
 
   seasons: boolean[] = [true, false];
 
-  constructor(private fb:FormBuilder,private adminService:AdminService) { }
+  constructor(private fb:FormBuilder,
+    private adminService:AdminService,
+    private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.payupdateForm = this.fb.group({
@@ -26,8 +29,19 @@ export class UpdatePendingPaymentComponent implements OnInit {
     this.adminService.updatePendingPayment(form.value.orderId,this.payStatus)
     .subscribe( res => {
       console.log(res);
+      if(res){
+        this.openSnackBar();
+        this.payupdateForm.reset('');
+      }
     })
 
+  }
+
+  openSnackBar(){
+    this.snackBar.open('Updated Success','x',{
+      duration : 5000,
+      panelClass :'success-snackbar'
+    });
   }
 
 }

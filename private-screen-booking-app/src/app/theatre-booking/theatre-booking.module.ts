@@ -7,6 +7,7 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     TheatreBookingRoutingModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class TheatreBookingModule { }

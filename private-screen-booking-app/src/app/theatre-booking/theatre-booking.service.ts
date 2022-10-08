@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { catchError, debounceTime, delay, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Order } from './_interface/order';
 
@@ -13,7 +14,7 @@ export class TheatreBookingService {
 
   apiUrl = environment.apiURL;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private snackBar:MatSnackBar) { }
 
 
   availableSlots(selectedDate:string,selectedTheatre:string):Observable<any>{
@@ -33,9 +34,15 @@ export class TheatreBookingService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(`${operation} failed: ${error.message}`);
+      this.openSnackBar();
       return of(result as T);
     };
   }
 
-
+  private openSnackBar(){
+    this.snackBar.open('An Error Occured.Please try again','x',{
+      duration : 5000,
+      panelClass :'failure-snackbar'
+    });
+}
 }

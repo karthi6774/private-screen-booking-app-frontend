@@ -1,11 +1,12 @@
 .contact-details{
   height: 300px;
   width:100%;
+  background-color:#eee ;
+
 }
 
 .section-heading{
   text-align: center;
-  margin-top: 10px;
 }
 
 .section{

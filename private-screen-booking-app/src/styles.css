@@ -2,3 +2,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; overflow-y: hidden; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success-snackbar{
+  background-color: green;
+  color: white;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  margin: 0 !important;
+}
+
+
+.failure-snackbar{
+  background-color: red;
+  color: white;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  margin: 0 !important;
+}

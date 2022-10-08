@@ -1,7 +1,6 @@
 
-
-<div class="container" style="margin: auto;">
 <button mat-button routerLink="/book-now">GO BACK</button>
+<div class="container" style="margin: auto;">
 <div>
   <div class="h5">How To</div>
   <mat-list>
@@ -10,6 +9,14 @@
     <mat-list-item>3.Up on confirming ,you will receive a mail ,containing payment procedure</mat-list-item>
   </mat-list>
 </div>
+
+
+
+<div *ngIf="isloading" class="mt-2 mb-2">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
+
+
   <mat-card>
       <div class="row">
         <div class="col-6 col-sm-3">
