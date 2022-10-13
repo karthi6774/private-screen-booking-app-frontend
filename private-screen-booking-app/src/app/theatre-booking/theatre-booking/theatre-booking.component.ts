@@ -149,6 +149,13 @@ export class TheatreBookingComponent implements OnInit ,AfterViewInit {
     this.selectedSlot = slotName;
   }
 
+  toBookNow(){
+    this.selectedDate ='';
+    this.selectedTheatre ='';
+    this.selectedSlot='';
+    this.router.navigate(['/book-now'])
+  }
+
   checkoutPage(){
     console.log(this.selectedDate);
         this.router.navigateByUrl('/book-now/checkout',{state:[

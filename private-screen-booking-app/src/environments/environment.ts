@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   apiURL: 'http://localhost:3000',
-  domain:'localhost:3000'
+  domain:'localhost:3000',
+  RazorPayKey : 'rzp_test_92PardcnXu9TOs'
+  //RazorPayKey :'rzp_live_5PpqsRQYISY3Bx'
 };
 
 /*

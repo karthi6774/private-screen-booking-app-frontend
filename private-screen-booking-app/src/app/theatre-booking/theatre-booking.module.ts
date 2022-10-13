@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SharedModule } from '../shared/shared.module';
+import { RazorPaymentComponent } from './checkout/razor-payment/razor-payment.component';
 
 
 @NgModule({
   declarations: [
     TheatreBookingComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    RazorPaymentComponent
   ],
   imports: [
     CommonModule,

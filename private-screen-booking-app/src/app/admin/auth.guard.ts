@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
         return true;
       }
 
-      this.router.navigate(["admin/login"]);
+      this.router.navigate(["tyzwvy/admin/login"]);
       return false;
 
   }

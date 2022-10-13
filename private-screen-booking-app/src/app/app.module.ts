@@ -32,6 +32,7 @@ export function tokenGetter() {
     BrowserAnimationsModule,
     AngularMaterialModule,
     HomeModule,
+    AdminModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {

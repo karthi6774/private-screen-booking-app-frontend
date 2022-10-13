@@ -1,0 +1,9 @@
+<div *ngIf="isloading" class="mt-2 mb-2">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+  <div class="mt-2 text-center">
+    <small>This process might take a few seconds.please please don't refresh or hit back button</small>
+  </div>
+</div>
+<button mat-raised-button class="razor-button mt-2 mb-2 ms-2 me-2" [disabled]="toDisable || isManualPayClicked" (click)="payWithRazorPay()">Razor-Pay</button>
+
+

@@ -1,56 +1,71 @@
 
 <button mat-button routerLink="/book-now">GO BACK</button>
 <div class="container" style="margin: auto;">
-<div>
-  <div class="h5">How To</div>
-  <mat-list>
-    <mat-list-item>1.Check details mentioned below are correct</mat-list-item>
-    <mat-list-item>2.Enter valid Name, email id ,contact number </mat-list-item>
-    <mat-list-item>3.Up on confirming ,you will receive a mail ,containing payment procedure</mat-list-item>
-  </mat-list>
-</div>
-
-
-
-<div *ngIf="isloading" class="mt-2 mb-2">
-  <mat-progress-bar mode="query"></mat-progress-bar>
-</div>
-
-
   <mat-card>
+    <div>
+      <div class="h4">Steps</div>
+      <div class="h5">We provide 2 payment option</div>
       <div class="row">
-        <div class="col-6 col-sm-3">
-          <div class="h4">TheatreName</div>
-          <div class="h4">Date</div>
-          <div class="h4">SlotName</div>
-          <div class="h4">Price</div>
-          <div class="h4">Number of seats</div>
+        <div class="col-sm-6">
+          <div class="h5"> 1.Manual payment</div>
+          <mat-list>
+            <mat-list-item class="mt-3">1.After entering the details click on Pay-Manually button</mat-list-item>
+            <mat-list-item class="mt-3"> 2.You will receive a mail (Order confirmed and payment pending) containing payment procedure </mat-list-item>
+            <mat-list-item class="mt-3">3.After payment is successfull you will receive a mail ( Order confirmed and payment Success)</mat-list-item>
+          </mat-list>
         </div>
-        <div class="col-6 col-sm-3">
-          <div class="h4">{{this.order.theatreName}}</div>
-          <div class="h4">{{this.order.screenDate | date}}</div>
-          <div class="h4">{{this.order.slotName}}</div>
-          <div class="h4">{{this.order.price}}</div>
-          <div class="h4">{{this.order.numberOfSeats}}</div>
+        <div class="col-sm-6">
+          <div class="h5">2.Razor Pay</div>
+          <mat-list>
+            <mat-list-item class="mt-3">1.Razor pay is the most trusted and Widely used payment gateway accross india</mat-list-item>
+            <mat-list-item class="mt-3">2.Once details are filled ,Click on Razor-Pay button ,Razor Pay pop window will open   </mat-list-item>
+            <mat-list-item class="mt-3">3.Enter your payment information (don't worry we don't store your payment information on our servers) </mat-list-item>
+            <mat-list-item class="mt-3">4.After payment is successfull you will receive a mail ( Order confirmed and payment Success) </mat-list-item>
+          </mat-list>
         </div>
       </div>
-      <mat-card-header>
-<!--       <div mat-card-avatar class="header-image"></div>
-   <div class="row justify-content-center">
-      <div class="col-sm-4">
-        <div>{{this.order.theatreName}}</div>
-        <div>{{this.order.screenDate | date}} ,{{this.order.slotName}}</div>
-      </div>
-      <div class="col-sm-4">
-        <div>{{this.order.price}}</div>
-        <div>{{this.order.numberOfSeats}}</div>
+    </div>
+
+      <div class="row mt-4">
+        <div class="col-sm-6">
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td><strong>TheatreName</strong></td>
+                <td>{{this.order.theatreName}}</td>
+              </tr>
+              <tr>
+                <td><strong>Date</strong></td>
+                <td> {{this.order.screenDate | date}}</td>
+              </tr>
+              <tr>
+                <td><strong>SlotName  </strong></td>
+                <td>{{this.order.slotName}}</td>
+              </tr>
+              <tr>
+                <td><strong>Price</strong></td>
+                <td>{{this.order.price}}</td>
+              </tr>
+              <tr>
+                <td><strong>Number of seats</strong></td>
+                <td>{{this.order.numberOfSeats}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6">
+        </div>
       </div>
 
-   </div> -->
 
-    </mat-card-header>
     <mat-card-content>
-      <form class="checkout-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm)">
+      <div *ngIf="isloading" class="mt-2 mb-2">
+        <mat-progress-bar mode="query"></mat-progress-bar>
+        <div class="mt-2 text-center">
+          <small>This process might take a few seconds.please please don't refresh or hit back button</small>
+        </div>
+      </div>
+      <form class="checkout-form" [formGroup]="checkoutForm">
         <mat-form-field appearance="standard">
           <div>
             <mat-label>
@@ -88,9 +103,18 @@
           </div>
         </mat-form-field>
 
-        <button mat-raised-button type="submit" [disabled]="checkoutForm.invalid">Confirm Booking</button>
-      </form>
 
+
+      </form>
+      <div class="text-center">
+
+          <button class="manual-pay-button mt-2 mb-2 ms-2 me-2" mat-raised-button type="submit" (click)="onSubmit(checkoutForm)"
+           [disabled]="checkoutForm.invalid || isRazorPayClicked">Pay-Manually</button>
+
+
+            <app-razor-payment (isRazorPayClicked)="isRazorPayClickedEvent($event)" [toDisable]="checkoutForm.invalid"
+            [formData]="checkoutForm.value" [isManualPayClicked]="isManualPayClicked"></app-razor-payment>
+          </div>
     </mat-card-content>
   </mat-card>
 </div>

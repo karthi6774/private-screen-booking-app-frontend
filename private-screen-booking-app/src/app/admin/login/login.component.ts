@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("access_token",token);
       localStorage.setItem("userId",userId);
       this.invalidLogin = false;
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/tyzwvy/admin']);
     });
 
 

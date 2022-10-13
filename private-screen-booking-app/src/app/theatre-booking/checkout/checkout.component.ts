@@ -58,6 +58,13 @@ isloading:boolean=false;
     slotName: ''
   }
 
+  isRazorPayClicked:boolean=false;
+
+  isRazorPayClickedEvent(event:any){
+    console.log(event);
+    this.isRazorPayClicked = event;
+  }
+
   ngOnInit(): void {
    //console.log(history.state[0]);
     let temp = history.state[0];
@@ -89,7 +96,13 @@ isloading:boolean=false;
 
   }
 
+  isManualPayClicked:boolean = false;
+
   onSubmit(form: FormGroup) {
+    this.isManualPayClicked = true;
+    if(this.isRazorPayClicked){
+      return
+    }
 /*     console.log('Valid?', form.valid); // true or false
     console.log('Name', form.value.fullName);
     console.log('Email', form.value.email);

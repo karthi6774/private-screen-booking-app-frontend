@@ -17,5 +17,17 @@ mat-form-field{
   width: 70%;
 }
 
+.manual-pay-button{
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(97, 255, 6);
+  color: white;
+  font-size: large;
+  border-radius: 30px;
+  width: 150px;
+}
+
 
 

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError, debounceTime, delay, Observable, of } from 'rxjs';
+import { catchError, delay, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Order } from './_interface/order';
 
@@ -40,8 +40,8 @@ export class TheatreBookingService {
   }
 
   private openSnackBar(){
-    this.snackBar.open('An Error Occured.Please try again','x',{
-      duration : 5000,
+    this.snackBar.open('An Error Occured while confirming the order \n .Please try again','x',{
+      duration : 50000,
       panelClass :'failure-snackbar'
     });
 }

@@ -15,6 +15,9 @@
       <mat-calendar [minDate]="today" [selected]="selectedDate"
        (selectedChange)="selectedDateEvent($event)"></mat-calendar>
     </mat-card>
+    <div>
+    <p class="text-center mt-2">All Dates are according to (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</p>
+    </div>
   </div>
 
 <!--   <mat-form-field appearance="fill">
@@ -27,9 +30,7 @@
   </mat-form-field> -->
 </div>
 
-<!--
-  TODO : to hide the unselected or unclicked theatre use query parameters
--->
+
 
 
 <div class="container" [ngStyle]="{ 'display' : selectedDate?'block':'None'}">
@@ -86,7 +87,8 @@
     <div *ngIf="isloading === false && availableSlots.morning === false && availableSlots.afternoon === false
      && availableSlots.evening === false && availableSlots.night=== false">
       Oops,There are no Slots available for Selected Date or Theatre.
-      Please Choose different theatre or change date
+      Please Choose different theatre or change date.
+      <button mat-raised-button (click)="toBookNow()">Take  me to book-now page</button>
     </div>
     <mat-button-toggle  mat-stroked-button class="button-container" value="morning"
     (click)="slotSelectedEvent('MORNING')" *ngIf="availableSlots.morning" >
@@ -139,8 +141,8 @@
    </mat-list> -->
 </div>
 
-<div class="book-now-btn">
-  <button color="primary" mat-button [disabled]="selectedSlot===''" (click)="checkoutPage()"  > BOOK-NOW  </button>
+<div class="book-now-btn mb-5" *ngIf="selectedSlot !==''">
+  <button appAutoFocus class="checkout-button" mat-button (click)="checkoutPage()"  > Checkout  </button>
 </div>
 
 

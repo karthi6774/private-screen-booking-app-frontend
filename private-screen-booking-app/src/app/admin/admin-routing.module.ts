@@ -5,12 +5,12 @@ import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {
+/*   {
     path:'',component:AdminComponent,canActivate:[AuthGuard]
   },
   {
     path:'login',component:LoginComponent
-  }
+  } */
 ];
 
 @NgModule({
