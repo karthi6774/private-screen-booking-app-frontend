@@ -1,6 +1,8 @@
 export const environment = {
   production: true,
-  apiURL: 'https://cryptic-harbor-13946.herokuapp.com',
-  domain:'cryptic-harbor-13946.herokuapp.com',
-  RazorPayKey :'rzp_live_5PpqsRQYISY3Bx'
+  apiURL:
+    'https://private-screen-booking-app-dndtaug8g7fddyg6.southeastasia-01.azurewebsites.net',
+  domain:
+    'private-screen-booking-app-dndtaug8g7fddyg6.southeastasia-01.azurewebsites.net',
+  RazorPayKey: 'rzp_test_LOnTFWHYIVeymr',
 };

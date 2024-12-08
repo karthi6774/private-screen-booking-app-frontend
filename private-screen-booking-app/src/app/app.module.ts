@@ -13,19 +13,12 @@ import { ContactHelpModule } from './contact-help/contact-help.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 
-
-
-
 export function tokenGetter() {
-  return localStorage.getItem("access_token");
+  return localStorage.getItem('access_token');
 }
 
-
-
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,14 +30,14 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains:[environment.apiURL,environment.domain],
+        allowedDomains: [environment.apiURL, environment.domain],
 
-     // whitelistedDomains: ["localhost:5000"],
-     // blacklistedRoutes: []
-      }
-    })
+        // whitelistedDomains: ["localhost:5000"],
+        // blacklistedRoutes: []
+      },
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

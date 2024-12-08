@@ -4,9 +4,11 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:3000',
-  domain:'localhost:3000',
-  RazorPayKey : 'rzp_test_92PardcnXu9TOs'
+  apiURL:
+    'https://private-screen-booking-app-dndtaug8g7fddyg6.southeastasia-01.azurewebsites.net', //'http://localhost:3000',
+  domain:
+    'private-screen-booking-app-dndtaug8g7fddyg6.southeastasia-01.azurewebsites.net', //'localhost:3000',
+  RazorPayKey: 'rzp_test_LOnTFWHYIVeymr',
   //RazorPayKey :'rzp_live_5PpqsRQYISY3Bx'
 };
 
